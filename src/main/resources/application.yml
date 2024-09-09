@@ -1,0 +1,30 @@
+spring:
+  config:
+    import: optional:file:.env[.properties]
+  application:
+    name: keumbang-auth
+  datasource:
+    url: jdbc:mariadb://${DB_ADDR}:${DB_PORT}/${DB_TABLE}
+    username: ${DB_USER}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.mariadb.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MariaDBDialect
+    show-sql: true
+  data:
+    redis:
+      port: ${REDIS_PORT:6379}
+      host: ${REDIS_ADDR}
+
+server:
+  port: ${PORT:8080}
+  
+jwt:
+  secret: ${JWT_SECRET}
+
+
+     
