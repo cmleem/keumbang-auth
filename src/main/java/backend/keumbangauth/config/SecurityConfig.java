@@ -19,6 +19,8 @@ import backend.keumbangauth.jwt.JWTUtil;
 import backend.keumbangauth.repository.RefreshTokenRepository;
 import backend.keumbangauth.service.CustomUserDetailsService;
 import lombok.RequiredArgsConstructor;
+import net.devh.boot.grpc.server.security.authentication.BasicGrpcAuthenticationReader;
+import net.devh.boot.grpc.server.security.authentication.GrpcAuthenticationReader;
 
 @Configuration
 @EnableWebSecurity
@@ -68,5 +70,10 @@ public class SecurityConfig {
 	AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) 
 			throws Exception {
 		return authenticationConfiguration.getAuthenticationManager();
+	}
+	
+	@Bean
+	GrpcAuthenticationReader grpcAuthenticationReader() {
+		return new BasicGrpcAuthenticationReader();
 	}
 }

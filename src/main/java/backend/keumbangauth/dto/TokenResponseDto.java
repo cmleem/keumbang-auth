@@ -6,12 +6,12 @@ import lombok.Data;
 
 @Data
 @Builder
-public class TokenValidationResponseDto {
+public class TokenResponseDto {
 	Boolean isValid;
 	UsersResponseDto user;
 	
-	public static TokenValidationResponseDto toDto(Users entity) {
-		return TokenValidationResponseDto.builder()
+	public static TokenResponseDto toDto(Users entity) {
+		return TokenResponseDto.builder()
 				.isValid(true)
 				.user(UsersResponseDto.toDto(entity))
 				.build();

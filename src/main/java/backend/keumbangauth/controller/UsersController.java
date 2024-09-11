@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import backend.keumbangauth.dto.SignupRequestDto;
-import backend.keumbangauth.dto.TokenValidationResponseDto;
+import backend.keumbangauth.dto.TokenResponseDto;
 import backend.keumbangauth.dto.UsersResponseDto;
 import backend.keumbangauth.entity.Users;
 import backend.keumbangauth.service.UsersService;
@@ -36,7 +36,7 @@ public class UsersController {
 	@GetMapping("/get")
 	@PreAuthorize("isAuthenticated()")
 	public ResponseEntity<?> get(@AuthenticationPrincipal Users user){
-		return ResponseEntity.ok(TokenValidationResponseDto.toDto(user));
+		return ResponseEntity.ok(TokenResponseDto.toDto(user));
 	}
 	
 }

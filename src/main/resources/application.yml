@@ -25,6 +25,10 @@ server:
   
 jwt:
   secret: ${JWT_SECRET}
+  
+grpc:
+  server:
+    port: ${GRPC_SERVER_PORT}
 
 
      

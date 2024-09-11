@@ -20,4 +20,8 @@ public class UsersService {
 		
 		return usersRepository.save(user);
 	}
+	
+	public Users get(String username) {
+		return usersRepository.findByUsername(username).orElseThrow();
+	}
 }
